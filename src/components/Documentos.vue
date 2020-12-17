@@ -37,7 +37,6 @@ export default {
     methods: {
         async getData() {
             let data = await axios.get('https://docutic.herokuapp.com/list-files')
-            console.log(data.data[0])
             this.datos = await data.data
         }
     }, 
@@ -49,9 +48,24 @@ export default {
 </script>
 
 <style>
-  .doculist {
+.doculist {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-  }
+}
+
+@media only screen and (max-width: 995px) {
+.doculist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+}
+
+@media only screen and (max-width: 767px) {
+.doculist {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+}
+
 
 </style>
