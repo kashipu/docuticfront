@@ -6,13 +6,13 @@
     <div class="row">
         <div class="doculist">
             <div class="card m-3" v-for="(value, index) in datos">
-                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="">
+                <img :src="value.file_img" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">{{ value.title }} </h5>
-                    <p class="card-text">{{ value.body}}</p>
-                    <p>{{ value.id}}</p>
-                    <p>{{ value.type }}</p>
-                    <p>{{ value.size }}</p>
+                    <h5 class="card-title">{{ value.file_name }} </h5>
+                    <p class="card-text">{{ value.file_description}}</p>
+                    <p>{{ value.file_id}}</p>
+                    <p>{{ value.file_type }}</p>
+                    <p>{{ value.file_size }}</p>
                     <div>
                         <a href="#" class="btn ml-0 btn-sm btn-warning">Editar</a>
                         <a href="#" class="btn mx-2 btn-sm btn-danger">Eliminar</a>
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         async getData() {
-            let data = await axios.get('https://jsonplaceholder.typicode.com/posts')
+            let data = await axios.get('https://docutic.herokuapp.com/list-files')
             console.log(data.data[0])
             this.datos = await data.data
         }
