@@ -7,6 +7,7 @@
         <div class="title">
             <small>
                 Puede hacer la carga de archivos y ver la respuesta de la api en fastapi
+                Se puede eliminar documentos, por favor recargar la página
             </small>
         </div>
         <div class="doculist">
@@ -45,6 +46,7 @@ export default {
         },
         deleteData(id){
             let data = axios.delete('https://sprint2-ciclo3-grupo-11.herokuapp.com/delete/' + id)
+            location.reload()
         }
     }, 
     created(){
