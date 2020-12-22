@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Titulo titulo="DOCUTIC 0.1"/>
+    <Titulo titulo="DOCUTIC 0.2"/>
     <CrudDocumentos/>
     <Documentos/>  
 

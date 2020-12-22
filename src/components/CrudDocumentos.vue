@@ -8,7 +8,7 @@
         </div>
         <div class="row my-4">
             <div class="formbox border p-4 bg-light col-12 my-2 collapse" id="collapseExample">
-                <form>
+                <form action="https://sprint2-ciclo3-grupo-11.herokuapp.com/uploadfile/" enctype="multipart/form-data" method="post">
                     <div class="form-group">
                         <label for="formGroupExampleInput">Nombre del documento</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
@@ -17,14 +17,10 @@
                         <label for="formGroupExampleInput2">Descripción del documento</label>
                         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripción">
                     </div>
-                    <div class="form-group">
-                        <p>Elija el archivo</p>
-                        <div class="custom-file">
-                            <label class="custom-file-label" for="customFile"></label>
-                            <input type="file" class="custom-file-input" id="customFile">
+                        <div class="form-group">
+                            <input name="file" type="file" multiple>
                         </div>
-                    </div>
-                    <button type="button" class="btn btn-info px-5">Enviar</button>
+                    <button type="submit" class="btn btn-info px-5">Enviar</button>                    
                 </form>
             </div>
         </div>
@@ -33,7 +29,21 @@
 
 <script>
 export default {
-
+     data() {
+        return {
+            datos: null
+                }
+    },
+    methods: {
+        async getData() {
+            let data = await axios.get('https://sprint2-ciclo3-grupo-11.herokuapp.com/list-files')
+            this.datos = await data.data
+        },
+        
+    }, 
+    created(){
+        this.getData()
+    }
 }
 </script>
 
